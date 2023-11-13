@@ -1,5 +1,5 @@
 # Bot for optimizing education experience built with aiogram and sqlite3
-![image](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/5f309cad-9f77-40c0-9586-97a768cbe5b3)# EducationBotAiogram
+![image](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/5c7bd28b-142d-4678-b502-202d9f549214)
 
 Telegram bot, that helps with studying in School\University
 
@@ -17,34 +17,43 @@ Main menu provides 4 buttons:
 - Homework
 - Admin panel(Available only for users, that have is_superuser as true in database)
 
-![image](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/99c5e5ca-43b1-44f1-add1-e770e32fa6e3)
+![image](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/4e7b6296-beb2-4238-a318-a940497a7c47)
 
 ### Admin Panel
-Admin panel provides adding and removing the homework
+Admin panel provides adding the homework to the database
+
+How to add homework tasks to the database?
 
 #### Step 1 - Click on the homework button 
-![image](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/e01bbd24-34cf-4942-b014-1fb376917baa)
+![image](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/9bb9a625-d305-45fc-8ec7-de47f1a32316)
 
 #### Step 2 - Click on the lesson you want to add homework for
-![ezgif com-video-to-gif (6)](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/9857966f-96ab-4421-be45-3264f5767426)
+![ezgif com-video-to-gif (9)](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/f488cc48-79ec-47e7-8780-bfafce01c910)
 
 #### Step 3 - Choose date when task is given, date for deadline, and the task itself
-![ezgif com-video-to-gif (7)](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/7374db97-1418-4695-96e2-56d065c1f03a)
+![ezgif com-video-to-gif (10)](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/1b3b419b-9dc2-4d65-ab0c-5cd658d3c646)
+
+We are having error that says, you need to enter another date or lesson, because this homework already exist
+Enter another date and...
 
 #### Ready! Now task is added and can be displayed in homework section
 
 ### Homework
 #### Step 1 - Select search option (only by date for now)
-![image](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/ab9eb9c7-efc5-4ba0-aa67-0b05eae2b82e)
+![image](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/f339cc31-6fe6-48a7-a004-6d7768f1e684)
 
 #### Step 2 - Enter deadline date
-![image](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/b544ead3-4b93-4c2a-ba66-578da9dc69ee)
+![image](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/0a2e9117-192d-4e89-b254-7bb86b8fff85)
+!IMPORTANT: Format of the data must be like: "dd/mm/yy"
 
 #### Ready! Here is homework on the specified date
-![ezgif com-video-to-gif (8)](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/30c00833-5ae5-4a4c-8381-4788a611bca1)
+![ezgif com-video-to-gif (11)](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/c00d583e-cb99-472c-b81d-40eca4c4901d)
 
 ### Schedule
-// TODO
+*Schedule is predefined for the only one class, but in future it expects to be universal for all learning groups
+
+#### Step1 - Select day of the week to see the schedule 
+
 
 ### Literature(books)
 // TODO
