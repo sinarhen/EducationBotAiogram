@@ -53,7 +53,8 @@ Enter another date and...
 *Schedule is predefined for the only one class, but in future it expects to be universal for all learning groups
 
 #### Step1 - Select day of the week to see the schedule 
-
+![image](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/bb570dc9-c0a0-4772-8242-6ed2a36074af)
+Ready!
 
 ### Literature(books)
 // TODO
