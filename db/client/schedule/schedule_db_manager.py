@@ -16,7 +16,7 @@ class ScheduleDB(Database):
 
     def get_day_of_week_data(self, weekday):
         self.cur.execute(f"""
-            SELECT name, time, teacher from schedule WHERE day={weekday};
+            SELECT lesson.name, time, teacher from schedule JOIN lesson on schedule.lesson_id=lesson.id WHERE day={weekday};
         """)
         fetch = self.cur.fetchall()
         return fetch

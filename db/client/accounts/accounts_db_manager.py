@@ -39,4 +39,4 @@ class AccountDB(Database):
         return False
 
     def is_creator(self, user_id):
-        return user_id == '679161628'
+        return str(user_id) == '679161628'

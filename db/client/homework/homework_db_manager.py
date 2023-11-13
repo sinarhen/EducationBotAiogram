@@ -23,15 +23,21 @@ class HomeworkDB(Database):
         data = self.get_data(select=('name',), _from='lesson', id=lesson_id, distinct=True)
         return data
 
-    def get_homework_data(self, weekday):
+    def get_homework_data(self, date_to):
         sql_query = f"""
-                        SELECT name, task, strftime('%d/%m/%Y',date_from), strftime('%d/%m/%Y',date_to) FROM schedule 
-                        LEFT JOIN lesson ON schedule.lesson_id=lesson.id 
-                        LEFT JOIN homework ON strftime('%w', homework.date_to)=schedule.day 
-                        AND homework.lesson_id=lesson.id WHERE day={weekday}
-        """
-        self.cur.execute(sql_query)
+        SELECT 
+            lesson.name,
+            task,
+            date_from,
+            date_to
+        FROM 
+            homework
+            LEFT JOIN
+            lesson ON homework.lesson_id = lesson.id
+        WHERE date_to = '{date_to}'
 
+ """
+        self.cur.execute(sql_query)
         return self.cur.fetchall()
 
     def check_if_task_already_exists(self, date_to, lesson_id):

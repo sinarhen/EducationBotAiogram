@@ -54,6 +54,9 @@ class BooksDB(Database):
                     _id = author[author_info]['id']
                     self.add_data(table_name='lesson', name=lesson, book_id=_id)
         self.add_data(table_name='lesson', name='Фізична культура')
+        self.add_data(table_name='lesson', name='Англійська мова')
+        self.add_data(table_name='lesson', name='Географія')
+
         self.commit()
 
     def insert_data_to_table_book_of_db(self, author: str, cover_path, pdf_file_path):

@@ -21,5 +21,4 @@ async def process_accounts_check(message: types.Message, state: FSMAdminFunction
 
 
 def register_message_handlers(dp: Dispatcher):
-    dp.register_message_handler(process_accounts_check, commands=['superadmin_users'],
-                                state=FSMAdminFunctions._function)
+    dp.register_message_handler(process_accounts_check, commands=['superadmin_users'],)

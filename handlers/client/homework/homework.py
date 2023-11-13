@@ -6,7 +6,7 @@ from keyboards.keyboards import get_yes_no_keyboard, get_custom_keyboard, get_ho
     get_menu_keyboard
 from db.client.homework.homework_db_manager import HomeworkDB
 from utils.client.utils import get_pd_dataframe, get_image_bytecode, export_image
-from utils.client.homework.utils import is_correct_date, is_uncorrect_date, get_datetime_object_from_string, \
+from utils.client.homework.utils import is_correct_date, is_uncorrect_date, normalize_datetime_to_sqlite, \
     INVALID_DATE_MESSAGE
 
 
@@ -32,15 +32,17 @@ async def process_type_date_is_valid(message: types.Message, state: FSMHomework.
     await FSMHomework.return_to_main_menu.set()
 
     initializer = HomeworkDB()
-    dt = get_datetime_object_from_string(message.text)
-    weekday = dt.isoweekday()
-    inner = initializer.get_homework_data(weekday=weekday)
-    df = get_pd_dataframe(data=inner, columns=['Предмет', "Завдання", "Задано", "Виконати до"])
-    file_name = 'homework.png'
-    export_image(df, file_name)
-    image = get_image_bytecode(filename=file_name)
+    dt = normalize_datetime_to_sqlite(message.text)
 
-    await bot.send_photo(message.from_user.id, image)
+    inner = initializer.get_homework_data(date_to=dt)
+    if not inner:
+        await bot.send_message(message.from_user.id, "Не знайдено дз на цей день")
+    else:
+        df = get_pd_dataframe(data=inner, columns=['Предмет', "Завдання", "Задано", "Виконати до"])
+        file_name = 'homework.png'
+        export_image(df, file_name)
+        image = get_image_bytecode(filename=file_name)
+        await bot.send_photo(message.from_user.id, image)
     await bot.send_message(message.from_user.id, 'Повернутись до головного меню?', reply_markup=get_yes_no_keyboard())
 
 

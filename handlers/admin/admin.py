@@ -17,6 +17,7 @@ class FSMAdminFunctions(StatesGroup):
 
 async def process_admin_start(message: types.Message):
     user = User(message.from_user.id)
+
     if user.is_superuser():
         await FSMAdminFunctions._function.set()
         await bot.send_message(message.from_user.id, 'Адмін панель', reply_markup=get_admin_functions_keyboard())

@@ -14,12 +14,19 @@ user_menu = emojize_list(['Розклад :notebook:', "Книги :books:", "Д
 
 admin_menu = emojize_list(
     ['Розклад :notebook:', "Книги :books:", "Домашнє завдання :pencil:", "Адмін панель :briefcase:"])
-
+creator_menu = admin_menu + ["/superadmin_users"]
 yes_no = emojize_list(['Так :check_mark_button:', "Ні :cross_mark:"])
 
 admin_functions = 'Домашнє завдання',
 homework_search_by = {"За датою": 'date_to'}
 
+def get_creator_keyboard():
+    btns = [InlineKeyboardButton(text=i) for i in creator_menu]
+    kb = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True,
+                             input_field_placeholder='Що вас цікавить?')
+    for i in btns:
+        kb.add(i)
+    return kb
 
 def add_mainmenu_button(func):
     def wrapped(*args):
@@ -68,7 +75,6 @@ def get_schedule_options_keyboard():
         kb.add(i)
     return kb
 
-@add_mainmenu_button
 def get_authorized_keyboard():
     btns = [InlineKeyboardButton(text=i) for i in admin_menu]
     kb = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True, input_field_placeholder='Що вас цікавить?')
@@ -76,7 +82,6 @@ def get_authorized_keyboard():
         kb.add(i)
     return kb
 
-@add_mainmenu_button
 def get_unauthorized_keyboard():
     btns = [InlineKeyboardButton(text=i) for i in user_menu]
     kb = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True, input_field_placeholder='Що вас цікавить?')
@@ -86,7 +91,9 @@ def get_unauthorized_keyboard():
 
 
 def get_menu_keyboard(user_id):
-    if User(user_id).is_superuser():
+    if (User(user_id).is_creator()):
+        return get_creator_keyboard()
+    elif User(user_id).is_superuser():
         return get_authorized_keyboard()
     return get_unauthorized_keyboard()
 
