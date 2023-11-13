@@ -92,8 +92,19 @@ handlers contain 2 folders:
 
 **See detailed at**: *https://github.com/sinarhen/EducationBotAiogram/edit/master/handlers/client*
 
-Each 'client/'  handler is working with their according db_manager from '<root>/db/' folder (will be described later) 
- 
+Each handler is working with their according database manager from '<root>/db/' folder (will be described below) 
+
+#### Example of usage:
+
+```python
+from db.client.books.books_db_manager import BooksDB
+
+initializer = BooksDB()
+lessons = initializer.get_all_lessons()
+authors = initializer.get_all_authors()
+```
+
+This code initializes Database Manager for Books table in database 
 
   
 
