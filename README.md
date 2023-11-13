@@ -109,4 +109,5 @@ This code initializes Database Manager for Books table in database
   
 
 ## Database Architecture
-// TODO
+![drawSQL-education-export-2023-11-13](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/d33bc37e-941f-4b9d-8279-d339828ebb77)
+
