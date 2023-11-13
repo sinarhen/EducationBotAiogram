@@ -73,8 +73,8 @@ Project functionality is separated between 2 folders: handlers and db
 ![image](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/375fb70f-d496-4885-b922-91514dee2423)
 
 Utilities folders:
-- 'utils/' contains some general utils along the project  
-- 'plots/' contains some generated images of tables (i know, it is probably the worst solution in case of large-scale usage)
+- '<root>/utils/' contains some general utils along the project  
+- '<root>/plots/' contains some generated images of tables (i know, it is probably the worst solution in case of large-scale usage)
 - 'keyboards/keyboards.py' contains generated with aiogram.types.ReplyKeyboardMarkup
 
 Files in root of the project:
@@ -84,9 +84,18 @@ Files in root of the project:
 - 'requirements.txt' requirements for venv for quick installation all of the necessary packages
 
 ### Handlers
+![image](https://github.com/sinarhen/EducationBotAiogram/assets/105736826/a930b157-4cbf-4b46-8fe6-69a393734c6b)
+
 handlers contain 2 folders: 
-- 'admin' - client with handlers for admin panel
-- ''
+- 'admin/' - handlers for admin panel (admin_accounts, admin_homework) 
+- 'client/' - handlers for basic user (schedule, books, homework, and one another folder 'accounts/' with class of User model for better validation and adding to db)
+
+**See detailed at**: *https://github.com/sinarhen/EducationBotAiogram/edit/master/handlers/client*
+
+Each 'client/'  handler is working with their according db_manager from '<root>/db/' folder (will be described later) 
+ 
+
+  
 
 ## Database Architecture
 // TODO
